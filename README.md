@@ -23,3 +23,52 @@
 |$*	| The command line arguments used to invoke the script    |
 |$$	| The Ruby interpreter's process ID                       |
 |$?	| The exit status of last executed child process          |
+
+### loop
+- `do` is optional
+```ruby
+i = 0
+while i < 5 do
+   puts i
+   i += 1
+   break if i == 2
+end
+```
+- more intuitive way of loop: `until`
+```ruby
+i = 0
+until i == 5 # loop from i == 0 until i == 4 (exclusive)
+   puts i
+   i += 1
+end
+
+# until used as modifier
+i = 0
+puts i += 1 until i == 5 # loop from i == 1 until i == 5 (inclusive)
+```
+- break in the nested loop, break out of inner most loop and outer loop keep looping.
+```ruby
+for j in 1..5 do
+     for i in 1..5 do
+         print i,  " "
+         break if i == 2
+     end
+end
+```
+- `next` is like `continue` in other languages
+### String
+- `General Delimited Strings`: define any character you want as a string delimiter simply by prefixing the desired character with a `%`
+```ruby
+myString = %&This is my String&
+```
+- Ruby also provides a few special delimited strings. `%Q` is the equivalent of `double quote` delimiters and `%q` is the equivalent of `single quotes`. `%x` is the equivalent of back-quote (`` `  ``) delimited strings.
+```ruby
+myString = %q(This is "my" String)
+myString = %Q(This is "my" String) # works as well
+```
+- get length and check if empty string or not.
+```ruby
+myString = ""
+myString.empty? # => true
+myString.length # => 0
+```
