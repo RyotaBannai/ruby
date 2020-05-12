@@ -72,3 +72,23 @@ myString = ""
 myString.empty? # => true
 myString.length # => 0
 ```
+### Substring
+- The `gsub` method returns a modified string, **leaving the original string unchanged**, whereas the `gsub!` method directly modify the string object on which the method was called.
+- An entire string may be replaced with `replace` method.
+```ruby
+myString = "Welcome to PHP!" # => "Welcome to PHP!"
+myString.replace "Goodbye to PHP!" # => "Goodbye to PHP!"
+```
+- The `chop` returns a modified string, **leaving the original string object unchanged**. Use `chop!` to have the change applied to the string object on which the method was called.
+- `chomp(rs = $/) -> String`: 末尾から `rs` で指定する改行コードを取り除いた文字列を生成して返す。`rs` が `"\n"` (`$/` のデフォルト値) のときは、実行環境によらず `"\r", "\r\n", "\n"` のすべてを改行コードとみなして取り除きます。
+```ruby
+$/ = "\n"   # デフォルト値と同じ
+p "foo\r".chomp    # => "foo"
+p "foo\r\n".chomp  # => "foo"
+p "foo\n".chomp    # => "foo"
+p "foo\n\r".chomp  # => "foo\n" => \n\r のときは最後の一つを`chomp`
+```
+- `strip -> String` : 文字列先頭と末尾の空白文字を全て取り除いた文字列を生成して返す。空白文字の定義は `"\t\r\n\f\v"` 。また、文字列**右側**からは `"\0"` も取り除くが、**左側**の `"\0"` は取り除かない。
+```ruby
+str = "\tabc\n" # => abc
+```
