@@ -8,7 +8,7 @@
 - a **constant** value to be changed after it has been declared, although the interpreter will protest slightly with a warning message.
   Constants declared `within a class or module` are available anywhere `within the context of that class or module`. Constants declared `outside of a class or module` are assigned **global scope**.
 
-|ariable Name	|Variable Value|
+|variable Name	|Variable Value|
 |:------:|:------|
 |$@	| The location of latest error                            |
 |$_	| The string last read by gets                            |
@@ -92,3 +92,8 @@ p "foo\n\r".chomp  # => "foo\n" => \n\r のときは最後の一つを`chomp`
 ```ruby
 str = "\tabc\n" # => abc
 ```
+- オブジェクト指向で一般的なクラス以外にも、`モジュール`という概念が存在する。モジュールではクラスと同じように`定数やメソッドをまとめたり、クラスに組み込んで多重継承を実現したり、クラスなどをまとめることで名前空間を提供するなど`、いろいろな使い方ができる。
+- `Mix-in`: クラスに組み込んで多重継承を実現する。
+> Ruby のクラスは単一継承のみですが、モジュールをクラスに組み込むことで`多重継承を可能に`しています（ここだけ聞くと Java で言う interface のようですが、module ではメソッドの機能を実装することができます）。クラスにモジュールを include したり extend することを Mix-in と言い、Mix-in によってクラスの肥大化を防いだり、クラスをまたがった同じ処理を切り出して繰り返しを防ぐことができます。
+  モジュール関数、クラスメソッドは組み込むことができません。
+- include: 対象のクラスに include したモジュールのメソッドが`インスタンスメソッドとして`組み込まれる。クラスから `new` で作成したインスタンスで呼び出すことができる。
