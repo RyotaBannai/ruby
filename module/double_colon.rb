@@ -26,7 +26,7 @@ module Mod
     puts "goodbye"
   end
 
-  def self.uncalled_from_others # クラスメソッド
+  def self.uncallable_from_others # クラスメソッド
 
     puts "this method can't be called"
   end
@@ -36,7 +36,7 @@ end
 
 Mod.hello
 Mod.goodbye
-Mod.uncalled_from_others
+Mod.uncallable_from_others
 
 class Obj
   include Mod
