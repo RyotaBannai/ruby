@@ -139,6 +139,33 @@ end
 Obj.hello #=> "Hello"
 ```
 
+- `redo`: Restarts this iteration of `the most internal loop`, without checking loop condition. Restarts `yield` or `call` if called within a block. The below example will run infinite loop.
+```ruby
+for i in 0..5
+   if i < 2 then
+      puts "Value of local variable is #{i}"
+      redo
+   end
+end
+```
+
+- `retry`: If retry appears in rescue clause of begin expression, restart from the beginning of the begin body.
+```ruby 
+begin
+   do_something # exception raised
+rescue
+   # handles error
+   retry  # restart from beginning
+end
+```
+```ruby
+for i in 1..5
+   retry if some_condition # restart from i == 1
+end
+```
+
+
+
 #### モンキーバッチ
 
 - `モンキーバッチ` (`monkey patch`: 他のコードと衝突する可能性のあるパッチが `ゲリラパッチ` (`guerilla patch`) と呼ばれていたが、音が似ていることによって `ゴリラパッチ` (`gorilla patch`) に転じ、さらにそこから `モンキーパッチ` (`monkey patch`))
@@ -183,3 +210,9 @@ binding.eval("foo") # => 1
 #### pros is sometimes called closure:
 
 - They don’t carry the actual values, but `a reference to them`, so if the variables change after the proc is created, `the proc will always have the latest version`. -> `つまり Javascript のように宣言時に変数の値を キャプチャ するような レキシカルスコープ の closure とは違う。`
+
+
+#### Terms
+- `::`: Constant resolution operator
+- `[][]=`: Element reference, element set
+- `if modifier`: comes end of statement, such as `print "debug\n" if $debug`
