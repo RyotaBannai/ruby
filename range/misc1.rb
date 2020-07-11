@@ -21,12 +21,18 @@ characters.reject { |subrange| subrange < 'c' }
 # case
 score = 70
 
-result = case score
-         when 0..40 then "Fail" # when a, b, c # this means match to the exact value
-         when 41..60 then "Pass"
-         when 61..70 then "Pass with Merit"
-         when 71..100 then "Pass with Distinction"
-         else "Invalid Score"
-         end
+result =
+  case score
+  when 0..40
+    'Fail' # when a, b, c # this means match to the exact value
+  when 41..60
+    'Pass'
+  when 61..70
+    'Pass with Merit'
+  when 71..100
+    'Pass with Distinction'
+  else
+    'Invalid Score'
+  end
 
 puts result

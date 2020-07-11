@@ -163,6 +163,25 @@ for i in 1..5
    retry if some_condition # restart from i == 1
 end
 ```
+- class method: you don't need to instantiate class to use method, like return_date in Accounts class in the example below ...
+```ruby
+class Accounts
+   def reading_charge
+   end
+   def Accounts.return_date
+   end
+end
+```
+- `BEGIN and END Blocks`: 
+  - `BEGIN`: a block of code to be run as the file is being loaded
+  - `END`: after the program has finished executing
+- `Arbitrary delimiter characters` e.g., !, (, {, <, etc., preceded by a percent character (%): 
+```text
+%{Ruby is fun.}  equivalent to "Ruby is fun."
+%Q{ Ruby is fun. } equivalent to " Ruby is fun. "
+%q[Ruby is fun.]  equivalent to a single-quoted string
+%x!ls! equivalent to back tick command output `ls`
+```
 
 
 
